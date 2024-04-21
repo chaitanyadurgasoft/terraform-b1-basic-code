@@ -9,6 +9,6 @@ resource "aws_vpc" "TestBank" {
 resource "aws_internet_gateway" "TestBank-IGW" {
   vpc_id = aws_vpc.TestBank.id
   tags = {
-    Name= var.IGW
+    Name = var.IGW
   }
 }

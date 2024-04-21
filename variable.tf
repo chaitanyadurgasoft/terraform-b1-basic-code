@@ -13,3 +13,5 @@ variable "Private_Subnet1_name" {}
 variable "Private_Subnet2_name" {}
 variable "Public_Route_Name" {}
 variable "Private_Route_Name" {}
+variable "Public_Subnet3_name" {}
+variable "Public_Subnet3_cidr" {}
