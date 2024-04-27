@@ -11,4 +11,5 @@ resource "aws_internet_gateway" "TestBank-IGW" {
   tags = {
     Name = var.IGW
   }
+  depends_on = [ aws_vpc.TestBank ]
 }

@@ -6,6 +6,7 @@ resource "aws_subnet" "TestBank-PublicSubnet-1" {
   tags = {
     Name = var.Public_Subnet1_name
   }
+  depends_on = [ aws_internet_gateway.TestBank-IGW ]
 }
 
 resource "aws_subnet" "TestBank-PublicSubnet-2" {
@@ -16,6 +17,7 @@ resource "aws_subnet" "TestBank-PublicSubnet-2" {
   tags = {
     Name = var.Public_Subnet2_name
   }
+  depends_on = [ aws_subnet.TestBank-PublicSubnet-1 ]
 }
 
 resource "aws_subnet" "TestBank-PublicSubnet-3" {
@@ -26,6 +28,7 @@ resource "aws_subnet" "TestBank-PublicSubnet-3" {
   tags = {
     Name = var.Public_Subnet3_name
   }
+  depends_on = [ aws_subnet.TestBank-PublicSubnet-2 ]
 }
 
 
@@ -36,6 +39,7 @@ resource "aws_subnet" "TestBank-PrivateSubnet-1" {
   tags = {
     Name = var.Private_Subnet1_name
   }
+  depends_on = [ aws_subnet.TestBank-PublicSubnet-3 ]
 }
 resource "aws_subnet" "TestBank-PrivateSubnet-2" {
   vpc_id            = aws_vpc.TestBank.id
@@ -44,6 +48,7 @@ resource "aws_subnet" "TestBank-PrivateSubnet-2" {
   tags = {
     Name = var.Private_Subnet2_name
   }
+  depends_on = [ aws_subnet.TestBank-PrivateSubnet-1 ]
 }
 
 
