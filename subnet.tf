@@ -28,6 +28,16 @@ resource "aws_subnet" "TestBank-PublicSubnet-3" {
   }
 }
 
+resource "aws_subnet" "TestBank-PublicSubnet-4" {
+  vpc_id                  = aws_vpc.TestBank.id
+  cidr_block              = var.Public_Subnet4_cidr
+  availability_zone       = var.az2
+  map_public_ip_on_launch = true
+  tags = {
+    Name = var.Public_Subnet4_name
+  }
+}
+
 resource "aws_subnet" "TestBank-PrivateSubnet-1" {
   vpc_id            = aws_vpc.TestBank.id
   cidr_block        = var.Private_Subnet1_cidr
